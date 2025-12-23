@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <div className="padding-30 container grid grid-cols-2 items-center">
       <div className="grid-cols-1 space-y-5">
-        <div className="bg-linear-to-r from-[#5454D4]/40 to-[5454D4]/42 absolute top-0 w-[1400px] h-[500px] -left-120 rounded-3xl rotate-35 z-1 blur-3xl"></div>
+        <div className="bg-linear-to-r from-[#5454D4]/40 to-[5454D4]/60 absolute top-30 w-[1400px] h-[500px] -left-120 rounded-3xl rotate-35 z-1 blur-3xl"></div>
         <h1 className="font-bold text-[100px] z-5">
           Build Your Awesome Platform
         </h1>
