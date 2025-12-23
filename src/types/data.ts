@@ -6,4 +6,4 @@ export interface IProductData {
     techniques: string;
     name: string;
     portfolio: string[];
-}
+};

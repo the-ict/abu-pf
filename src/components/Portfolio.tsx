@@ -1,87 +1,105 @@
 import { PRODUCT_INFO } from "../constants/data";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import ReactPlayer from "react-player";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 
-type IPlay = {
-  [key: number]: boolean;
-};
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 export default function Portfolio() {
-  const [play, setPlay] = useState<IPlay>({});
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderRef = useRef<Slider | null>(null);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "0",
-    beforeChange: (current: number, next: number) => setCurrentSlide(next),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: false,
-        }
-      }
-    ]
-  };
-
-  const goToSlide = (index: number) => {
-    sliderRef.current?.slickGoTo(index);
-  };
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
 
   return (
-    <div className="padding-30 mt-[130px] min-h-[calc(100vh-130px)] container mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="font-bold text-4xl md:text-5xl mb-4">
+    <div className="container mx-auto mt-[150px] min-h-[calc(100vh-130px)] px-4">
+      <div className="text-center mb-14">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Why Enver Is The Best Choice?
         </h1>
-        <p className="text-lg text-[#ffffff]/60 max-w-2xl mx-auto">
-          Watch these videos to understand why you should use our services!
+        <p className="text-white/60 max-w-2xl mx-auto">
+          Watch these short demos to see how our product works in real life.
         </p>
       </div>
 
-      <div className="relative">
-        <Slider ref={sliderRef} {...settings} className="portfolio-slider">
-          {PRODUCT_INFO.portfolio.map((video, index) => (
-            <div key={index} className="px-2 outline-none">
-              <div className="relative pt-[56.25%] rounded-xl overflow-hidden">
+      <div className="relative max-w-5xl mx-auto">
+        <Swiper
+          modules={[Pagination, Navigation]}
+          spaceBetween={30}
+          slidesPerView={1}
+          centeredSlides
+          loop
+          pagination={{ clickable: true }}
+          onBeforeInit={(swiper) => {
+            // @ts-ignore
+            swiper.params.navigation.prevEl = prevRef.current;
+            // @ts-ignore
+            swiper.params.navigation.nextEl = nextRef.current;
+          }}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          breakpoints={{
+            0: {
+              navigation: false,
+            },
+            1024: {
+              navigation: true,
+            },
+          }}
+          onSlideChange={() => setPlayingIndex(null)}
+        >
+          {PRODUCT_INFO.portfolio.map((videoUrl, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative rounded-2xl overflow-hidden aspect-video bg-black shadow-2xl">
                 <ReactPlayer
-                  url={video}
+                  src={videoUrl}
                   width="100%"
                   height="100%"
-                  className="absolute top-0 left-0"
-                  playing={play[index] || false}
-                  controls
-                  onPlay={() => setPlay({ ...play, [index]: true })}
-                  onPause={() => setPlay({ ...play, [index]: false })}
+                  playing={playingIndex === index}
+                  controls={playingIndex === index}
                 />
-              </div>
-            </div>
-          ))}
-        </Slider>
 
-        <div className="flex justify-center mt-8 space-x-2">
-          {PRODUCT_INFO.portfolio.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                currentSlide === index ? 'bg-white w-8' : 'bg-white/30'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+                {playingIndex !== index && (
+                  <button
+                    onClick={() => setPlayingIndex(index)}
+                    className="absolute inset-0 flex items-center justify-center
+                    bg-black/40 hover:bg-black/60 transition"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-white
+                    flex items-center justify-center text-black text-3xl shadow-xl">
+                      ▶
+                    </div>
+                  </button>
+                )}
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
+
+        <button
+          ref={prevRef}
+          className="hidden lg:flex items-center justify-center
+          absolute left-[-70px] top-1/2 -translate-y-1/2
+          w-14 h-14 rounded-full bg-white/10 hover:bg-white/20
+          backdrop-blur text-white transition cursor-pointer z-10"
+        >
+          ←
+        </button>
+
+        <button
+          ref={nextRef}
+          className="hidden lg:flex items-center justify-center
+          absolute right-[-70px] top-1/2 -translate-y-1/2
+          w-14 h-14 rounded-full bg-white/10 hover:bg-white/20
+          backdrop-blur text-white transition cursor-pointer z-10"
+        >
+          →
+        </button>
       </div>
     </div>
   );
