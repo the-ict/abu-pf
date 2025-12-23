@@ -5,19 +5,19 @@ import play from "../assets/icons/play.png";
 
 export default function Hero() {
   return (
-    <div className="padding-30 container grid grid-cols-2 items-center">
-      <div className="grid-cols-1 space-y-5">
-        <div className="bg-linear-to-r from-[#5454D4]/40 to-[5454D4]/60 absolute top-30 w-[1400px] h-[500px] -left-120 rounded-3xl rotate-35 z-1 blur-3xl"></div>
-        <h1 className="font-bold text-[100px] z-5">
+    <div className="padding-30 container grid grid-cols-1 lg:grid-cols-2 lg:items-center mx-auto min-h-[calc(100vh-100px)] gap-10 lg:gap-0">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 z-10 w-full">
+        <div className="bg-[#5454D4]/30 absolute -top-20 -left-40 lg:-left-120 w-[300px] h-[300px] lg:w-[1400px] lg:h-[500px] rounded-full lg:rounded-3xl lg:rotate-35 z-0 blur-3xl opacity-50"></div>
+        <h1 className="font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight z-5">
           Build Your Awesome Platform
         </h1>
-        <p className="font-normal text-[#ffffff]/70 leading-9 w-[600px] z-5">
+        <p className="font-normal text-white/70 text-lg md:text-xl leading-relaxed max-w-[600px] z-5">
           Enver studio is a digital studio that offers several services such as
           UI/UX Design to developers, we will provide the best service for those
           of you who use our services.
         </p>
-        <button className="flex items-center gap-2 bg-[#5454D4] px-6 py-3 cursor-pointer text-[#ffffff] rounded-[5px]">
-          <span>Our Services</span>
+        <button className="flex items-center gap-2 bg-[#5454D4] hover:bg-[#4444c4] px-8 py-4 cursor-pointer text-white rounded-[5px] transition-all duration-300 z-5 shadow-lg shadow-[#5454D4]/20">
+          <span className="font-semibold text-lg">Our Services</span>
           <svg
             width="16"
             height="16"
@@ -32,15 +32,15 @@ export default function Hero() {
           </svg>
         </button>
       </div>
-      <div className="grid-cols-1 relative h-[calc(100vh-350px)]">
-        <img src={line} alt="LINE" className="absolute top-0 right-0" />
-        <img src={circle} alt="CIRCLE" className="absolute bottom-0 left-0" />
-        <img src={play} alt="PLAY" className="absolute bottom-0 right-0" />
-        <img src={plus} alt="PLUS" className="absolute top-0 left-0" />
+      <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[calc(100vh-350px)] w-full">
+        <img src={line} alt="LINE" className="absolute top-0 right-0 w-16 md:w-auto" />
+        <img src={circle} alt="CIRCLE" className="absolute bottom-0 left-0 w-16 md:w-auto" />
+        <img src={play} alt="PLAY" className="absolute bottom-0 right-0 w-16 md:w-auto opacity-50 lg:opacity-100" />
+        <img src={plus} alt="PLUS" className="absolute top-0 left-0 w-10 md:w-auto" />
 
         <div className="w-full flex items-center justify-center h-full relative">
-          <div className="w-50 h-50 rounded-2xl border-2 border-white rotate-25 absolute top-[40%] bg-[#5454D4] z-10"></div>
-          <div className="w-50 h-50 rounded-2xl border-2 border-white rotate-25 absolute top-[30%]"></div>
+          <div className="w-32 h-32 md:w-40 md:h-40 lg:w-50 lg:h-50 rounded-2xl border-2 border-white rotate-25 absolute top-[40%] bg-[#5454D4] z-10 shadow-2xl"></div>
+          <div className="w-32 h-32 md:w-40 md:h-40 lg:w-50 lg:h-50 rounded-2xl border-2 border-white rotate-25 absolute top-[30%] opacity-50"></div>
         </div>
       </div>
     </div>

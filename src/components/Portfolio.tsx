@@ -1,5 +1,5 @@
 import { PRODUCT_INFO } from "../constants/data";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
@@ -11,13 +11,13 @@ import "swiper/css/navigation";
 export default function Portfolio() {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   return (
-    <div className="container mx-auto mt-[150px] min-h-[calc(100vh-130px)] px-4">
-      <div className="text-center mb-14">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+    <div id="portfolio" className="container mx-auto mt-[150px] min-h-[calc(100vh-130px)] px-4">
+      <div className="text-center mb-10 md:mb-14 px-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           Why Enver Is The Best Choice?
         </h1>
         <p className="text-white/60 max-w-2xl mx-auto">
@@ -33,22 +33,20 @@ export default function Portfolio() {
           centeredSlides
           loop
           pagination={{ clickable: true }}
-          onBeforeInit={(swiper) => {
-            // @ts-ignore
-            swiper.params.navigation.prevEl = prevRef.current;
-            // @ts-ignore
-            swiper.params.navigation.nextEl = nextRef.current;
-          }}
           navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+            prevEl,
+            nextEl,
           }}
           breakpoints={{
             0: {
-              navigation: false,
+              navigation: {
+                enabled: false,
+              },
             },
             1024: {
-              navigation: true,
+              navigation: {
+                enabled: true,
+              },
             },
           }}
           onSlideChange={() => setPlayingIndex(null)}
@@ -71,7 +69,7 @@ export default function Portfolio() {
                     bg-black/40 hover:bg-black/60 transition"
                   >
                     <div className="w-20 h-20 rounded-full bg-white
-                    flex items-center justify-center text-black text-3xl shadow-xl">
+                    flex items-center justify-center text-black text-3xl shadow-xl cursor-pointer">
                       ▶
                     </div>
                   </button>
@@ -82,7 +80,7 @@ export default function Portfolio() {
         </Swiper>
 
         <button
-          ref={prevRef}
+          ref={setPrevEl}
           className="hidden lg:flex items-center justify-center
           absolute left-[-70px] top-1/2 -translate-y-1/2
           w-14 h-14 rounded-full bg-white/10 hover:bg-white/20
@@ -92,7 +90,7 @@ export default function Portfolio() {
         </button>
 
         <button
-          ref={nextRef}
+          ref={setNextEl}
           className="hidden lg:flex items-center justify-center
           absolute right-[-70px] top-1/2 -translate-y-1/2
           w-14 h-14 rounded-full bg-white/10 hover:bg-white/20
