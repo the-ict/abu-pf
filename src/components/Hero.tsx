@@ -6,7 +6,7 @@ import play from "../assets/icons/play.png";
 export default function Hero() {
   return (
     <div className="padding-30 container grid grid-cols-1 lg:grid-cols-2 lg:items-center mx-auto min-h-[calc(100vh-100px)] gap-10 lg:gap-0">
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 z-10 w-full">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 z-10 w-full in-view">
         <div className="bg-[#5454D4]/30 absolute -top-20 -left-40 lg:-left-120 w-[300px] h-[300px] lg:w-[1400px] lg:h-[500px] rounded-full lg:rounded-3xl lg:rotate-35 z-0 blur-3xl opacity-50"></div>
         <h1 className="font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight z-5">
           Build Your Awesome Platform
@@ -33,10 +33,10 @@ export default function Hero() {
         </button>
       </div>
       <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[calc(100vh-350px)] w-full">
-        <img src={line} alt="LINE" className="absolute top-0 right-0 w-16 md:w-auto" />
-        <img src={circle} alt="CIRCLE" className="absolute bottom-0 left-0 w-16 md:w-auto" />
-        <img src={play} alt="PLAY" className="absolute bottom-0 right-0 w-16 md:w-auto opacity-50 lg:opacity-100" />
-        <img src={plus} alt="PLUS" className="absolute top-0 left-0 w-10 md:w-auto" />
+        <img src={line} alt="LINE" className="absolute top-0 right-0 w-16 md:w-auto go-and-down" />
+        <img src={circle} alt="CIRCLE" className="absolute bottom-0 left-0 w-16 md:w-auto go-and-down" />
+        <img src={play} alt="PLAY" className="absolute bottom-0 right-0 w-16 md:w-auto opacity-50 lg:opacity-100 go-and-down" />
+        <img src={plus} alt="PLUS" className="absolute top-0 left-0 w-10 md:w-auto go-and-down" />
 
         <div className="w-full flex items-center justify-center h-full relative">
           <div className="w-32 h-32 md:w-40 md:h-40 lg:w-50 lg:h-50 rounded-2xl border-2 border-white rotate-25 absolute top-[40%] bg-[#5454D4] z-10 shadow-2xl"></div>
