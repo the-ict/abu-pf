@@ -5,4 +5,5 @@ export interface IProductData {
     creator: string;
     techniques: string;
     name: string;
+    portfolio: string[];
 }
