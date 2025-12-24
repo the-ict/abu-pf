@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="container flex items-center justify-between padding-30 mx-auto px-4">
+      <div className="container flex items-center justify-between padding-30 mx-auto px-4 bg-[#04040c]">
         <div className="flex items-center gap-2 cursor-pointer shrink-0">
           <img src={PRODUCT_INFO.logo} alt="this is logo" className="w-24 md:w-30 h-auto" />
         </div>
@@ -89,7 +89,7 @@ export default function Navbar() {
                 </a>
               </div>
 
-              
+
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center">
                 <a
                   href={telegramUrl || undefined}

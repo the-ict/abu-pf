@@ -6,9 +6,11 @@ import { PRODUCT_INFO } from "../constants/data";
 
 export default function Hero() {
   return (
-    <div className="padding-30 container grid grid-cols-1 lg:grid-cols-2 lg:items-center mx-auto min-h-[calc(100vh-100px)] gap-10 lg:gap-0">
+    <div className="padding-30 container grid grid-cols-1 lg:grid-cols-2 lg:items-center mx-auto min-h-[calc(100vh-100px)] gap-10 lg:gap-0 bg-[#04040c] relative">
+      {/* Blurred purple background - positioned outside animated content */}
+      <div className="bg-[#5454D4]/30 absolute -left-40 top-10 lg:-left-120 w-[300px] h-[300px] lg:w-[1000px] lg:h-[500px] rounded-full lg:rounded-3xl lg:rotate-35 z-0 blur-3xl opacity-50 pointer-events-none"></div>
+
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 z-10 w-full in-view">
-        <div className="bg-[#5454D4]/30 absolute -top-20 -left-40 lg:-left-120 w-[300px] h-[300px] lg:w-[1400px] lg:h-[500px] rounded-full lg:rounded-3xl lg:rotate-35 z-0 blur-3xl opacity-50 pointer-events-none"></div>
         <h1 className="font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight z-5">
           akbarov.ads
         </h1>
