@@ -35,9 +35,9 @@ export default function Portfolio() {
         <div className="relative max-w-5xl mx-auto">
           <Swiper
             modules={[Pagination, Navigation]}
-            spaceBetween={30}
+            spaceBetween={20}
             slidesPerView={1}
-            centeredSlides
+            slidesPerGroup={1}
             loop
             pagination={{ clickable: true }}
             navigation={{
@@ -46,11 +46,25 @@ export default function Portfolio() {
             }}
             breakpoints={{
               0: {
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 15,
+                navigation: {
+                  enabled: false,
+                },
+              },
+              768: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 20,
                 navigation: {
                   enabled: false,
                 },
               },
               1024: {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 24,
                 navigation: {
                   enabled: true,
                 },
@@ -60,7 +74,7 @@ export default function Portfolio() {
           >
             {PRODUCT_INFO.portfolio.map((videoUrl, index) => (
               <SwiperSlide key={index}>
-                <div className="relative rounded-2xl overflow-hidden aspect-video bg-black shadow-2xl">
+                <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl h-[calc(100vh-300px)] md:h-[350px] lg:h-[600px]">
                   <ReactPlayer
                     src={videoUrl}
                     width="100%"
@@ -86,25 +100,40 @@ export default function Portfolio() {
             ))}
           </Swiper>
 
-          <button
+
+          <motion.button
             ref={setPrevEl}
             className="hidden lg:flex items-center justify-center
           absolute left-[-70px] top-1/2 -translate-y-1/2
           w-14 h-14 rounded-full bg-white/10 hover:bg-white/20
-          backdrop-blur text-white transition cursor-pointer z-10"
+          backdrop-blur text-white cursor-pointer z-10 text-2xl font-bold"
+            whileHover={{
+              scale: 1.15,
+              rotate: -5,
+              boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             ←
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
             ref={setNextEl}
             className="hidden lg:flex items-center justify-center
           absolute right-[-70px] top-1/2 -translate-y-1/2
           w-14 h-14 rounded-full bg-white/10 hover:bg-white/20
-          backdrop-blur text-white transition cursor-pointer z-10"
+          backdrop-blur text-white cursor-pointer z-10 text-2xl font-bold"
+            whileHover={{
+              scale: 1.15,
+              rotate: 5,
+              boxShadow: "0 0 20px rgba(255, 255, 255, 0.3)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             →
-          </button>
+          </motion.button>
         </div>
       </div>
     </motion.div>
