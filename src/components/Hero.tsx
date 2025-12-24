@@ -78,7 +78,7 @@ export default function Hero() {
               <img
                 src={PRODUCT_INFO.picture}
                 alt={PRODUCT_INFO.picture}
-                className="absolute inset-0 w-full h-full object-contain z-15"
+                className="absolute inset-0 w-full h-full object-contain z-15 -rotate-20 top-5"
               />
 
               {/* CHAP BORDER (TEPADA) — RASM TASHQARIDA */}
