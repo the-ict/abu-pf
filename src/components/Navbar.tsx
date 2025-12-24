@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <ul className="flex items-center gap-6 xl:gap-15 text-[14px]">
             <li><a href="#" className="cursor-pointer hover:text-[#5454D4] transition-all duration-150 text-[#FFFFFF]/70">Bosh sahifa</a></li>
-            <li><a href="#services" className="cursor-pointer hover:text-[#5454D4] transition-all duration-150 text-[#FFFFFF]/70">Xizmatlar</a></li>
+            <li><a href="#services" className="cursor-pointer hover:text-[#5454D4] transition-all duration-150 text-[#FFFFFF]/70">Ko'nikmalarim</a></li>
             <li><a href="#portfolio" className="cursor-pointer hover:text-[#5454D4] transition-all duration-150 text-[#FFFFFF]/70">Portfolio</a></li>
             <li><a href="#experience" className="cursor-pointer hover:text-[#5454D4] transition-all duration-150 text-[#FFFFFF]/70">Tajriba</a></li>
           </ul>

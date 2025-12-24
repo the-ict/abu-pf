@@ -20,9 +20,9 @@ export default function Portfolio() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 2 }}
+      transition={{ duration: 1 }}
     >
-      <div id="portfolio" className="container mx-auto mt-[150px] min-h-[calc(100vh-130px)] px-4">
+      <div id="portfolio" className="container mx-auto mt-[150px] min-h-[calc(100vh-130px)] px-4 padding-30">
         <div className="text-center mb-10 md:mb-14 px-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase ">
             Nega meni tanlashingiz kerak ?
