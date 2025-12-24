@@ -9,15 +9,15 @@ export default function Hero() {
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 z-10 w-full in-view">
         <div className="bg-[#5454D4]/30 absolute -top-20 -left-40 lg:-left-120 w-[300px] h-[300px] lg:w-[1400px] lg:h-[500px] rounded-full lg:rounded-3xl lg:rotate-35 z-0 blur-3xl opacity-50"></div>
         <h1 className="font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight z-5">
-          Build Your Awesome Platform
+          akbarov.ads
         </h1>
         <p className="font-normal text-white/70 text-lg md:text-xl leading-relaxed max-w-[600px] z-5">
-          Enver studio is a digital studio that offers several services such as
-          UI/UX Design to developers, we will provide the best service for those
-          of you who use our services.
+          Salom! Men Akbarov Abdulloh, SMM mutaxassisi, mobilograf va kreativ
+          loyihalar yaratuvchisiman. Ushbu sayt orqali mening portfolioim,
+          tajribam va yaratuvchi ishlanmalarim bilan tanishishingiz mumkin.
         </p>
         <button className="flex items-center gap-2 bg-[#5454D4] hover:bg-[#4444c4] px-8 py-4 cursor-pointer text-white rounded-[5px] transition-all duration-300 z-5 shadow-lg shadow-[#5454D4]/20">
-          <span className="font-semibold text-lg">Our Services</span>
+          <span className="font-semibold text-lg" onClick={() => window.open("https://www.instagram.com/abuchamniki?igsh=MXE2emgyeHQwdm53aQ%3D%3D&utm_source=qr", "_blank")}>Bizni kuzatib boring</span>
           <svg
             width="16"
             height="16"
@@ -33,10 +33,26 @@ export default function Hero() {
         </button>
       </div>
       <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[calc(100vh-350px)] w-full">
-        <img src={line} alt="LINE" className="absolute top-0 right-0 w-16 md:w-auto go-and-down" />
-        <img src={circle} alt="CIRCLE" className="absolute bottom-0 left-0 w-16 md:w-auto go-and-down" />
-        <img src={play} alt="PLAY" className="absolute bottom-0 right-0 w-16 md:w-auto opacity-50 lg:opacity-100 go-and-down" />
-        <img src={plus} alt="PLUS" className="absolute top-0 left-0 w-10 md:w-auto go-and-down" />
+        <img
+          src={line}
+          alt="LINE"
+          className="absolute top-0 right-0 w-16 md:w-auto go-and-down"
+        />
+        <img
+          src={circle}
+          alt="CIRCLE"
+          className="absolute bottom-0 left-0 w-16 md:w-auto go-and-down"
+        />
+        <img
+          src={play}
+          alt="PLAY"
+          className="absolute bottom-0 right-0 w-16 md:w-auto opacity-50 lg:opacity-100 go-and-down"
+        />
+        <img
+          src={plus}
+          alt="PLUS"
+          className="absolute top-0 left-0 w-10 md:w-auto go-and-down"
+        />
 
         <div className="w-full flex items-center justify-center h-full relative">
           <div className="w-32 h-32 md:w-40 md:h-40 lg:w-50 lg:h-50 rounded-2xl border-2 border-white rotate-25 absolute top-[40%] bg-[#5454D4] z-10 shadow-2xl"></div>

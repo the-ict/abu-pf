@@ -24,11 +24,11 @@ export default function Portfolio() {
     >
       <div id="portfolio" className="container mx-auto mt-[150px] min-h-[calc(100vh-130px)] px-4">
         <div className="text-center mb-10 md:mb-14 px-4">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            Why Enver Is The Best Choice?
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase ">
+            Nega meni tanlashingiz kerak ?
           </h1>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Watch these short demos to see how our product works in real life.
+		Har bir loyiha — mening ijodiy yondashuvim va tajribamning namunasidir.
           </p>
         </div>
 
